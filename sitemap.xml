@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2015/10/30/hello-world/</loc>
+    <loc>http://zerosrat.github.io/about/index.html</loc>
+    <lastmod>2015-11-18T07:24:24.453Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zerosrat.github.io/2015/10/30/hello-world/</loc>
     <lastmod>2015-10-29T16:19:49.675Z</lastmod>
   </url>
   
