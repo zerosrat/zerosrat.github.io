@@ -1,26 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[YuJiayu's blog]]></title>
-  <subtitle><![CDATA[Stay Young, Stay Simple.]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://zerosrat.github.io/"/>
-  <updated>2015-12-05T14:10:31.236Z</updated>
-  <id>http://zerosrat.github.io/</id>
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
   
-  <author>
-    <name><![CDATA[Yu Jiayu]]></name>
+    <title>Android Notification官方文档翻译及解析 | YuJiayu&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-  </author>
+    <meta name="author" content="Yu Jiayu">
+    
+
+    
+    <meta name="description" content="学习并使用Notification">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Notification官方文档翻译及解析">
+<meta property="og:url" content="http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/index.html">
+<meta property="og:site_name" content="YuJiayu's blog">
+<meta property="og:description" content="学习并使用Notification">
+<meta property="og:image" content="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_area.png">
+<meta property="og:image" content="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_drawer.png">
+<meta property="og:updated_time" content="2015-12-05T14:10:31.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Notification官方文档翻译及解析">
+<meta name="twitter:description" content="学习并使用Notification">
+
+    
+    <link rel="alternative" href="/atom.xml" title="YuJiayu&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo1.png" alt="YuJiayu&#39;s blog" title="YuJiayu&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="YuJiayu&#39;s blog">YuJiayu&#39;s blog</a></h1>
+				<h2 class="blog-motto">Stay Young, Stay Simple.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:zerosrat.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[Android Notification官方文档翻译及解析]]></title>
-    <link href="http://zerosrat.github.io/2015/12/05/Android-Notification%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%8F%8A%E8%A7%A3%E6%9E%90/"/>
-    <id>http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/</id>
-    <published>2015-12-05T07:41:38.000Z</published>
-    <updated>2015-12-05T14:10:31.236Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><hr>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/05/Android-Notification官方文档翻译及解析/" title="Android Notification官方文档翻译及解析" itemprop="url">Android Notification官方文档翻译及解析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Yu Jiayu" target="_blank" itemprop="author">Yu Jiayu</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-05T07:41:38.000Z" itemprop="datePublished"> 发表于 2015-12-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计时需要考虑"><span class="toc-number">2.</span> <span class="toc-text">设计时需要考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个通知"><span class="toc-number">3.</span> <span class="toc-text">创建一个通知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要明确的通知内容"><span class="toc-number">3.1.</span> <span class="toc-text">需要明确的通知内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通知的动作"><span class="toc-number">3.2.</span> <span class="toc-text">通知的动作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个简单的通知"><span class="toc-number">3.3.</span> <span class="toc-text">创建一个简单的通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理兼容性"><span class="toc-number">3.4.</span> <span class="toc-text">处理兼容性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启一个活动并保证活动的返回栈顺序"><span class="toc-number">4.</span> <span class="toc-text">开启一个活动并保证活动的返回栈顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常规活动"><span class="toc-number">4.1.</span> <span class="toc-text">常规活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊活动"><span class="toc-number">4.2.</span> <span class="toc-text">特殊活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置一个常规活动的_PendingIntent"><span class="toc-number">4.3.</span> <span class="toc-text">设置一个常规活动的 PendingIntent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置一个特殊活动的_PendingIntent"><span class="toc-number">4.4.</span> <span class="toc-text">设置一个特殊活动的 PendingIntent</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="前言">前言</h2><hr>
 <p>Notification（以下会用 <strong>通知</strong> 替代）是一种消息，它会显示在你的应用程序的UI之外。当你告诉系统发出一个通知，它首先会以一个图标的形式显示在 <strong>通知区域</strong> (notification area)。要查看通知的详细内容，用户会打开 <strong>通知抽屉</strong> （notification drawer）。通知区域和通知抽屉都是用户能够随时查看的系统控制区域。</p>
 <p><img src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_area.png" alt="通知区域中的通知"></p>
 <p><img id="figure2" src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_drawer.png" width="280px" alt=""><br><img src="" alt="通知抽屉中的通知"></p>
@@ -74,112 +156,344 @@ Gmail app的通知是个不错的例子。当你点击一个电邮信息的通�
 <h3 id="设置一个特殊活动的_PendingIntent">设置一个特殊活动的 PendingIntent</h3><p>使用较少，直接放代码，以后用到再更新</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">".ResultActivity"</span></span><br><span class="line"><span class="attribute">...</span></span><br><span class="line">    <span class="attribute">android:launchMode</span>=<span class="value">"singleTask"</span></span><br><span class="line">    <span class="attribute">android:taskAffinity</span>=<span class="value">""</span></span><br><span class="line">    <span class="attribute">android:excludeFromRecents</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Instantiate a Builder object.</span></span><br><span class="line">NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>);</span><br><span class="line"><span class="comment">// Creates an Intent for the Activity</span></span><br><span class="line">Intent notifyIntent =</span><br><span class="line">        <span class="keyword">new</span> Intent(<span class="keyword">this</span>, ResultActivity.class);</span><br><span class="line"><span class="comment">// Sets the Activity to start in a new, empty task</span></span><br><span class="line">notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);</span><br><span class="line"><span class="comment">// Creates the PendingIntent</span></span><br><span class="line">PendingIntent notifyPendingIntent =</span><br><span class="line">        PendingIntent.getActivity(</span><br><span class="line">        <span class="keyword">this</span>,</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        notifyIntent,</span><br><span class="line">        PendingIntent.FLAG_UPDATE_CURRENT</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Puts the PendingIntent into the notification builder</span></span><br><span class="line">builder.setContentIntent(notifyPendingIntent);</span><br><span class="line"><span class="comment">// Notifications are issued by sending them to the</span></span><br><span class="line"><span class="comment">// NotificationManager system service.</span></span><br><span class="line">NotificationManager mNotificationManager =</span><br><span class="line">    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line"><span class="comment">// Builds an anonymous Notification object from the builder, and</span></span><br><span class="line"><span class="comment">// passes it to the NotificationManager</span></span><br><span class="line">mNotificationManager.notify(id, builder.build());</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[学习并使用Notification]]>
-    
-    </summary>
-    
-  </entry>
   
-  <entry>
-    <title><![CDATA[MarkDown语法手册]]></title>
-    <link href="http://zerosrat.github.io/2015/11/18/hello-markdown/"/>
-    <id>http://zerosrat.github.io/2015/11/18/hello-markdown/</id>
-    <published>2015-11-18T08:06:21.000Z</published>
-    <updated>2015-12-05T14:13:08.797Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a> 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。</p>
-<blockquote>
-<p>优雅使用MarkDown</p>
-</blockquote>
-<h2 id="常用语法">常用语法</h2><h3 id="斜体和粗体">斜体和粗体</h3><p>使用 * 和 ** 分别表示斜体和粗体。</p>
-<p>示例：</p>
-<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
-<h3 id="分级标题">分级标题</h3><p>使用 === 表示一级标题，使用 — 表示二级标题。</p>
-<p>示例：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">这是一个一级标题</span><br><span class="line">============================</span></span><br><span class="line"></span><br><span class="line"><span class="header">这是一个二级标题</span><br><span class="line">--------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">### 这是一个三级标题</span><br></pre></td></tr></table></figure>
-<p>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。</p>
-<h2 id="外链接">外链接</h2><p>使用 [描述](链接地址) 为文字增加外链接。</p>
-<p>示例：</p>
-<p>这是去往 <a href="https://github.com/zerosrat" target="_blank" rel="external">本人github</a> 的链接。</p>
-<h3 id="无序列表">无序列表</h3><p>使用 *，+，- 表示无序列表。</p>
-<p>示例：</p>
-<ul>
-<li>无序列表项 一</li>
-<li>无序列表项 二</li>
-<li>无序列表项 三</li>
-</ul>
-<h3 id="有序列表">有序列表</h3><p>使用数字和点表示有序列表。</p>
-<p>示例：</p>
-<ol>
-<li>有序列表项 一</li>
-<li>有序列表项 二</li>
-<li>有序列表项 三</li>
-</ol>
-<h3 id="文字引用">文字引用</h3><p>使用 &gt; 表示文字引用。</p>
-<p>示例：</p>
-<blockquote>
-<p>野火烧不尽，春风吹又生。</p>
-</blockquote>
-<h3 id="行内代码块">行内代码块</h3><p>使用 `代码` 表示行内代码块。</p>
-<p>示例：</p>
-<p>让我们聊聊 <code>html</code>。</p>
-<h3 id="代码块">代码块</h3><p>使用 四个缩进空格 表示代码块。</p>
-<p>示例：</p>
-<pre><code>这是一个代码块，此行左侧有四个不可见的空格。
-</code></pre><h3 id="插入图像">插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
-<p>示例：</p>
-<p><img src="http://zerosrat-domain.stor.sinaapp.com/markdown%2Flogo1.png" alt="我的头像"></p>
-<h2 id="语法进阶">语法进阶</h2><h3 id="删除线">删除线</h3><p>使用 ~~ 表示删除线。</p>
-<p><del>这是一段错误的文本。</del></p>
-<h3 id="加强的代码块">加强的代码块</h3><p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
-<p>非代码示例：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> install <span class="keyword">vim</span>-gnome</span><br></pre></td></tr></table></figure>
-<p>Python 示例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="decorator">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span><br><span class="line"><span class="prompt">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
-<p>JavaScript 示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* nth element in the fibonacci series.</span><br><span class="line">* @param n &gt;= 0</span><br><span class="line">* @return the nth element, &gt;= 0.</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(fib(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
-<h3 id="使用图标">使用图标</h3><p>使用 <a href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/" target="_blank" rel="external">font-awesome</a> 的图标，在文档中输入</p>
-<pre><code><span class="tag">&lt;<span class="title">i</span> <span class="attribute">class</span>=<span class="value">"icon-weibo"</span>&gt;</span><span class="tag">&lt;/<span class="title">i</span>&gt;</span>
-</code></pre><p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
-<p>替换 上述 <code>i 标签</code> 内的 <code>icon-weibo</code> 以显示不同的图标，例如：</p>
-<pre><code><span class="tag">&lt;<span class="title">i</span> <span class="attribute">class</span>=<span class="value">"icon-github"</span>&gt;</span><span class="tag">&lt;/<span class="title">i</span>&gt;</span>
-</code></pre><p>即显示github的图标： <i class="icon-github icon-2x"></i></p>
-<p>更多的图标和玩法可以参看 <a href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/" target="_blank" rel="external">font-awesome</a> 官方网站。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[如何优雅地使用MarkDown]]>
-    
-    </summary>
-    
-  </entry>
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/" data-title="Android Notification官方文档翻译及解析 | YuJiayu&#39;s blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/11/18/hello-markdown/"  title="MarkDown语法手册">
+ <strong>下一篇：</strong><br/> 
+ <span>MarkDown语法手册
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/05/Android-Notification官方文档翻译及解析/" data-title="Android Notification官方文档翻译及解析" data-url="http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计时需要考虑"><span class="toc-number">2.</span> <span class="toc-text">设计时需要考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个通知"><span class="toc-number">3.</span> <span class="toc-text">创建一个通知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要明确的通知内容"><span class="toc-number">3.1.</span> <span class="toc-text">需要明确的通知内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通知的动作"><span class="toc-number">3.2.</span> <span class="toc-text">通知的动作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个简单的通知"><span class="toc-number">3.3.</span> <span class="toc-text">创建一个简单的通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理兼容性"><span class="toc-number">3.4.</span> <span class="toc-text">处理兼容性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启一个活动并保证活动的返回栈顺序"><span class="toc-number">4.</span> <span class="toc-text">开启一个活动并保证活动的返回栈顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常规活动"><span class="toc-number">4.1.</span> <span class="toc-text">常规活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊活动"><span class="toc-number">4.2.</span> <span class="toc-text">特殊活动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置一个常规活动的_PendingIntent"><span class="toc-number">4.3.</span> <span class="toc-text">设置一个常规活动的 PendingIntent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置一个特殊活动的_PendingIntent"><span class="toc-number">4.4.</span> <span class="toc-text">设置一个特殊活动的 PendingIntent</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
   
-  <entry>
-    <title><![CDATA[Hello Hexo]]></title>
-    <link href="http://zerosrat.github.io/2015/10/30/hello-world/"/>
-    <id>http://zerosrat.github.io/2015/10/30/hello-world/</id>
-    <published>2015-10-29T16:02:11.000Z</published>
-    <updated>2015-12-05T14:12:57.898Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><hr>
-<p>最近接触到了 <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 。这是我的第一篇文章。 可以阅读 <a href="http://hexo.io/docs/" target="_blank" rel="external">文档</a>  来了解更多。在使用<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 遇到了问题，可以直接 <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">问题解答</a> 或是在 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a> 上提出issues.</p>
-<blockquote>
-<p>开启Hexo之旅</p>
-</blockquote>
-<h2 id="快速开始">快速开始</h2><h3 id="新建一篇文章">新建一篇文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>了解更多： <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">写作</a></p>
-<h3 id="启动本地服务器">启动本地服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">服务器</a></p>
-<h3 id="生成静态文件">生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">生成</a></p>
-<h3 id="部署网站">部署网站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">部署</a></p>
-<p>或是 <strong>手动拷贝</strong> 生成的静态文件（~/public）</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[开启Hexo之旅]]>
-    
-    </summary>
-    
-  </entry>
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="zerosrat" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
   
-</feed>
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m zerosrat. <br/>
+			Welcome to my blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/zerosrat" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:827016252@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Yu Jiayu">Yu Jiayu</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"zerosrat"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256909424'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1256909424' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
