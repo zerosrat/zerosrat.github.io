@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Stay Young, Stay Simple.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zerosrat.github.io/"/>
-  <updated>2015-12-05T14:10:31.236Z</updated>
+  <updated>2015-12-24T06:38:41.954Z</updated>
   <id>http://zerosrat.github.io/</id>
   
   <author>
@@ -15,13 +15,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[谈谈Java设计模式（持续更新）]]></title>
+    <link href="http://zerosrat.github.io/2015/12/24/%E8%B0%88%E8%B0%88Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://zerosrat.github.io/2015/12/24/谈谈Java设计模式/</id>
+    <published>2015-12-24T05:18:20.000Z</published>
+    <updated>2015-12-24T06:38:41.954Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><h3 id="为什么要使用">为什么要使用</h3><p>一个程序员对设计模式的理解: 不懂为什么要把很简单的东西搞得那么复杂。后来才开始明白我所看到的“复杂”恰恰就是设计模式的精髓所在，我所理解的“简单”就是一把钥匙开一把锁的模式，目的仅仅是着眼于解决现在的问题，而设计模式的“复杂”就在真正理解设计模式之前我一直在编写“简单”的代码。</p>
+<h3 id="更新历史">更新历史</h3><p>2015.12.24 - 单例模式（singleton）</p>
+<h2 id="单例模式（singleton）">单例模式（singleton）</h2><h3 id="是什么">是什么</h3><p>Singleton 是一种创建性模型，它用来确保只产生一个实例，并提供一个访问它的全局访问点。对一些类来说，保证只有一个实例是很重要的，比如有的时候，数据库连接或 <code>Socket</code> 连接要受到一定的限制，必须保持同一时间只能有一个连接的存在。再举个例子，集合中的 <code>set</code> 中不能包含重复的元素，添加到 <code>set</code> 里的对象必须是唯一的，如果重复的值添加到 <code>set</code> ，它只接受一个实例。JDK中正式运用了单例模式来实现 <code>set</code> 的这一特性，大家可以查看 <code>java.util.Collections</code> 里的内部静态类 <code>SingletonSet</code> 的原代码。其实单例是最简单但也是应用最广泛的模式之一，在 JDK 中随处可见。</p>
+<h3 id="饿汉式单例">饿汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton single = <span class="keyword">new</span> Singleton();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> single;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉式单例">懒汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span> Singleton single = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(single == <span class="keyword">null</span>)&#123;</span><br><span class="line">			single = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> single;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="区别">区别</h3><p>都是通过使用 <code>private</code> 访问修饰符，将类的构造器指定为 <code>private</code> ，从而无法创建该类的对象了，除非是使用 <code>Singleton.getInstance()</code> .</p>
+<p>可以看到懒汉式是等到要使用这个对象时再创建的；而饿汉式在类加载时对象就被实例化，从资源利用来看，效率比懒汉更低。</p>
+<p>懒汉是线程不安全的，在并发环境下可能出现多个实例；而饿汉是天生安全的。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[学习Java设计模式]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Android Notification官方文档翻译及解析]]></title>
     <link href="http://zerosrat.github.io/2015/12/05/Android-Notification%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%8F%8A%E8%A7%A3%E6%9E%90/"/>
     <id>http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/</id>
     <published>2015-12-05T07:41:38.000Z</published>
-    <updated>2015-12-05T14:10:31.236Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><hr>
-<p>Notification（以下会用 <strong>通知</strong> 替代）是一种消息，它会显示在你的应用程序的UI之外。当你告诉系统发出一个通知，它首先会以一个图标的形式显示在 <strong>通知区域</strong> (notification area)。要查看通知的详细内容，用户会打开 <strong>通知抽屉</strong> （notification drawer）。通知区域和通知抽屉都是用户能够随时查看的系统控制区域。</p>
+    <updated>2015-12-24T05:35:08.519Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>Notification（以下会用 <strong>通知</strong> 替代）是一种消息，它会显示在你的应用程序的UI之外。当你告诉系统发出一个通知，它首先会以一个图标的形式显示在 <strong>通知区域</strong> (notification area)。要查看通知的详细内容，用户会打开 <strong>通知抽屉</strong> （notification drawer）。通知区域和通知抽屉都是用户能够随时查看的系统控制区域。</p>
 <p><img src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_area.png" alt="通知区域中的通知"></p>
 <p><img id="figure2" src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_drawer.png" width="280px" alt=""><br><img src="" alt="通知抽屉中的通知"></p>
 <blockquote>
