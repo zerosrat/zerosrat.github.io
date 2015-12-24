@@ -41,10 +41,10 @@
     <link href="http://zerosrat.github.io/2015/12/05/Android-Notification%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%8F%8A%E8%A7%A3%E6%9E%90/"/>
     <id>http://zerosrat.github.io/2015/12/05/Android-Notification官方文档翻译及解析/</id>
     <published>2015-12-05T07:41:38.000Z</published>
-    <updated>2015-12-24T05:35:08.519Z</updated>
+    <updated>2015-12-24T06:53:21.870Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>Notification（以下会用 <strong>通知</strong> 替代）是一种消息，它会显示在你的应用程序的UI之外。当你告诉系统发出一个通知，它首先会以一个图标的形式显示在 <strong>通知区域</strong> (notification area)。要查看通知的详细内容，用户会打开 <strong>通知抽屉</strong> （notification drawer）。通知区域和通知抽屉都是用户能够随时查看的系统控制区域。</p>
-<p><img src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_area.png" alt="通知区域中的通知"></p>
-<p><img id="figure2" src="http://zerosrat-domain.stor.sinaapp.com/Notification%2Fnotification_drawer.png" width="280px" alt=""><br><img src="" alt="通知抽屉中的通知"></p>
+<p><img src="http://7xoxnz.com1.z0.glb.clouddn.com/notification_area.png" alt="通知区域中的通知"></p>
+<p><img src="http://7xoxnz.com1.z0.glb.clouddn.com/notification_drawer.png" alt="通知抽屉中的通知"></p>
 <blockquote>
 <p>官方文档地址 - <a href="http://developer.android.com/guide/topics/ui/notifiers/notifications.html" target="_blank" rel="external">Notification | Android</a></p>
 <p>注：本指南使用的是 <code>Support Library version 4</code> 的 <code>NotificationCompat.Builder</code> 类，除非另有提及。</p>
@@ -108,7 +108,7 @@ Gmail app的通知是个不错的例子。当你点击一个电邮信息的通�
     <link href="http://zerosrat.github.io/2015/11/18/hello-markdown/"/>
     <id>http://zerosrat.github.io/2015/11/18/hello-markdown/</id>
     <published>2015-11-18T08:06:21.000Z</published>
-    <updated>2015-12-05T14:13:08.797Z</updated>
+    <updated>2015-12-24T06:51:15.175Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a> 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。</p>
 <blockquote>
 <p>优雅使用MarkDown</p>
@@ -150,7 +150,7 @@ Gmail app的通知是个不错的例子。当你点击一个电邮信息的通�
 <pre><code>这是一个代码块，此行左侧有四个不可见的空格。
 </code></pre><h3 id="插入图像">插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
 <p>示例：</p>
-<p><img src="http://zerosrat-domain.stor.sinaapp.com/markdown%2Flogo1.png" alt="我的头像"></p>
+<p><img src="http://7xoxnz.com1.z0.glb.clouddn.com/logo1.png" alt="我的头像"></p>
 <h2 id="语法进阶">语法进阶</h2><h3 id="删除线">删除线</h3><p>使用 ~~ 表示删除线。</p>
 <p><del>这是一段错误的文本。</del></p>
 <h3 id="加强的代码块">加强的代码块</h3><p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
