@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[YuJiayu's blog]]></title>
+  <title><![CDATA[Blog of Zero Yu]]></title>
   <subtitle><![CDATA[Stay Young, Stay Simple.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zerosrat.github.io/"/>
-  <updated>2015-12-29T06:02:04.215Z</updated>
+  <updated>2016-04-11T16:09:16.725Z</updated>
   <id>http://zerosrat.github.io/</id>
   
   <author>
-    <name><![CDATA[Yu Jiayu]]></name>
+    <name><![CDATA[Zero Yu]]></name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[UI5 知识分享]]></title>
+    <link href="http://zerosrat.github.io/2016/04/11/UI5/"/>
+    <id>http://zerosrat.github.io/2016/04/11/UI5/</id>
+    <published>2016-04-11T14:56:56.000Z</published>
+    <updated>2016-04-11T16:09:16.725Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" target="_blank" rel="external">OpenUI5</a> 和 SAPUI5，其中前者是开源的，可以在 <a href="https://github.com/SAP/openui5" target="_blank" rel="external">github</a> 获取。</p>
+<h3 id="Why_UI5?">Why UI5?</h3><p>今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。</p>
+<h2 id="开发环境搭建">开发环境搭建</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="前言">前言</h2><h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" t]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[谈谈Java设计模式（持续更新）]]></title>
@@ -182,34 +197,6 @@ Gmail app的通知是个不错的例子。当你点击一个电邮信息的通�
 ]]></content>
     <summary type="html">
     <![CDATA[如何优雅地使用MarkDown]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hello Hexo]]></title>
-    <link href="http://zerosrat.github.io/2015/10/30/hello-world/"/>
-    <id>http://zerosrat.github.io/2015/10/30/hello-world/</id>
-    <published>2015-10-29T16:02:11.000Z</published>
-    <updated>2015-12-05T14:12:57.898Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><hr>
-<p>最近接触到了 <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 。这是我的第一篇文章。 可以阅读 <a href="http://hexo.io/docs/" target="_blank" rel="external">文档</a>  来了解更多。在使用<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 遇到了问题，可以直接 <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">问题解答</a> 或是在 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a> 上提出issues.</p>
-<blockquote>
-<p>开启Hexo之旅</p>
-</blockquote>
-<h2 id="快速开始">快速开始</h2><h3 id="新建一篇文章">新建一篇文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>了解更多： <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">写作</a></p>
-<h3 id="启动本地服务器">启动本地服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">服务器</a></p>
-<h3 id="生成静态文件">生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">生成</a></p>
-<h3 id="部署网站">部署网站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>了解更多: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">部署</a></p>
-<p>或是 <strong>手动拷贝</strong> 生成的静态文件（~/public）</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[开启Hexo之旅]]>
     
     </summary>
     
