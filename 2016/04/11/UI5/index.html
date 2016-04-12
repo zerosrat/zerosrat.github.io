@@ -15,22 +15,28 @@
     <meta name="keywords" content="null" />
   
 
-  <meta name="description" content="前言What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
-Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。
-开发环境搭建">
+  <meta name="description" content="前言参考
+官方指南 - Demo Kit
+
+What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
+Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UI5 知识分享">
 <meta property="og:url" content="http://zerosrat.github.io/2016/04/11/UI5/index.html">
 <meta property="og:site_name" content="Blog of Zero Yu">
-<meta property="og:description" content="前言What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
-Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。
-开发环境搭建">
-<meta property="og:updated_time" content="2016-04-11T16:09:16.725Z">
+<meta property="og:description" content="前言参考
+官方指南 - Demo Kit
+
+What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
+Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择">
+<meta property="og:updated_time" content="2016-04-12T14:21:21.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UI5 知识分享">
-<meta name="twitter:description" content="前言What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
-Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。
-开发环境搭建">
+<meta name="twitter:description" content="前言参考
+官方指南 - Demo Kit
+
+What is UI5?UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 OpenUI5 和 SAPUI5，其中前者是开源的，可以在 github 获取。
+Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择">
 
   
 
@@ -156,7 +162,7 @@ Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也�
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_UI5?"><span class="toc-text">What is UI5?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why_UI5?"><span class="toc-text">Why UI5?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境搭建"><span class="toc-text">开发环境搭建</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_UI5?"><span class="toc-text">What is UI5?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why_UI5?"><span class="toc-text">Why UI5?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境搭建"><span class="toc-text">开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Eclipse_+_SAPUI5_Tools"><span class="toc-text">Eclipse + SAPUI5 Tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intellij_IDEA_+_OpenUI5"><span class="toc-text">Intellij IDEA + OpenUI5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAP_Web_IDE"><span class="toc-text">SAP Web IDE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello_World"><span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两个重要概念–Data_Binding_&_Navigation_and_Routing"><span class="toc-text">两个重要概念–Data Binding & Navigation and Routing</span></a></li></ol>
   </div>
 
 
@@ -194,9 +200,60 @@ Why UI5?今年1月到SAP实习，到现在主要是做前端开发，对UI5也�
 
   <div class="article-content">
     
-      <h2 id="前言">前言</h2><h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" target="_blank" rel="external">OpenUI5</a> 和 SAPUI5，其中前者是开源的，可以在 <a href="https://github.com/SAP/openui5" target="_blank" rel="external">github</a> 获取。</p>
+      <h2 id="前言">前言</h2><h3 id="参考">参考</h3><blockquote>
+<p>官方指南 - <a href="https://sapui5.hana.ondemand.com/#docs/guide/99ac68a5b1c3416ab5c84c99fefa250d.html" target="_blank" rel="external">Demo Kit</a></p>
+</blockquote>
+<h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" target="_blank" rel="external">OpenUI5</a> 和 SAPUI5，其中前者是开源的，可以在 <a href="https://github.com/SAP/openui5" target="_blank" rel="external">github</a> 获取。</p>
 <h3 id="Why_UI5?">Why UI5?</h3><p>今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。</p>
-<h2 id="开发环境搭建">开发环境搭建</h2>
+<h2 id="开发环境搭建">开发环境搭建</h2><h3 id="Eclipse_+_SAPUI5_Tools">Eclipse + SAPUI5 Tools</h3><p>搭建步骤直接从官方文档拖过来：</p>
+<blockquote>
+<p>Required Software for Installing and Running SAPUI5 Tools<br>To install and run SAPUI5 tools, the following software has to be installed:</p>
+<ul>
+<li><p>Java Runtime environment: JRE version, as supported by the used Eclipse release, in 32- or 64-Bit. For example, for Eclipse Mars, JRE 1.7 is recommended but &gt; JRE 1.8 is supported as well.&gt; </p>
+</li>
+<li><p>Operating system: Windows XP, Vista, 7 (32- or 64-Bit), 8/8.1</p>
+</li>
+<li><p>Browser: Not relevant, except for Internet Explorer 9.0 or higher for embedded application preview</p>
+</li>
+</ul>
+<p>Installation Process for SAPUI5 Tools<br>To install SAPUI5 tools, proceed as follows:</p>
+<ol>
+<li><p>Launch your Eclipse workbench. Open the installation wizard by choosing <strong>Help&gt;Install New Software</strong>.</p>
+</li>
+<li><p>In the Work with field of the installation wizard, specify the target directory of the package.</p>
+</li>
+<li><p>To add the new installation directory, choose Add and then choose Archive to specify the location. Enter a name for your local software site.</p>
+</li>
+<li><p>Select all features for the UI development toolkit for HTML5 and choose Next.</p>
+</li>
+<li><p>Review the feature groups to be installed and choose Next.</p>
+</li>
+<li><p>Accept the terms of the license agreement and choose Finish to initiate the installation of selected feature groups.</p>
+</li>
+<li><p>In the Certificates dialog confirm the certificates from Eclipse.org and SAP with OK.</p>
+</li>
+<li><p>To apply the changes of the installation procedure, restart the Eclipse workbench.</p>
+</li>
+<li><p>To check, whether the installation has been successful, proceed as follows:</p>
+</li>
+</ol>
+<p>For application development open Eclipse and choose <strong> File&gt;New&gt;Other…&gt;SAPUI5 Application Development&gt;Application Project</strong>. If the installation has been successful, the New Application Project wizard opens.</p>
+</blockquote>
+<h3 id="Intellij_IDEA_+_OpenUI5">Intellij IDEA + OpenUI5</h3><blockquote>
+<p><a href="http://scn.sap.com/community/developer-center/front-end/blog/2014/09/22/configuring-jetbrains-webstorm-for-ui5-development" target="_blank" rel="external">参考国外友人的分享</a></p>
+</blockquote>
+<h3 id="SAP_Web_IDE">SAP Web IDE</h3><p>最后一种方式最简单，只需要一个HCP账号就行了：</p>
+<ol>
+<li><p><a href="https://account.hanatrial.ondemand.com/" target="_blank" rel="external">登录HCP</a> (没有账号的话可以先注册)</p>
+</li>
+<li><p>点击侧边栏的 <strong>Subscriptions</strong></p>
+</li>
+<li><p>点击 <strong>webide</strong></p>
+</li>
+<li><p>点击 <strong>Application URL</strong></p>
+</li>
+</ol>
+<h2 id="Hello_World">Hello World</h2><h2 id="两个重要概念–Data_Binding_&amp;_Navigation_and_Routing">两个重要概念–Data Binding &amp; Navigation and Routing</h2>
     
   </div>
 </article>
