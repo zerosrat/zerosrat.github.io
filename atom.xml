@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Stay Young, Stay Simple.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zerosrat.github.io/"/>
-  <updated>2016-04-11T16:09:16.725Z</updated>
+  <updated>2016-04-12T14:21:21.001Z</updated>
   <id>http://zerosrat.github.io/</id>
   
   <author>
@@ -19,24 +19,76 @@
     <link href="http://zerosrat.github.io/2016/04/11/UI5/"/>
     <id>http://zerosrat.github.io/2016/04/11/UI5/</id>
     <published>2016-04-11T14:56:56.000Z</published>
-    <updated>2016-04-11T16:09:16.725Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" target="_blank" rel="external">OpenUI5</a> 和 SAPUI5，其中前者是开源的，可以在 <a href="https://github.com/SAP/openui5" target="_blank" rel="external">github</a> 获取。</p>
+    <updated>2016-04-12T14:21:21.001Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><h3 id="参考">参考</h3><blockquote>
+<p>官方指南 - <a href="https://sapui5.hana.ondemand.com/#docs/guide/99ac68a5b1c3416ab5c84c99fefa250d.html" target="_blank" rel="external">Demo Kit</a></p>
+</blockquote>
+<h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" target="_blank" rel="external">OpenUI5</a> 和 SAPUI5，其中前者是开源的，可以在 <a href="https://github.com/SAP/openui5" target="_blank" rel="external">github</a> 获取。</p>
 <h3 id="Why_UI5?">Why UI5?</h3><p>今年1月到SAP实习，到现在主要是做前端开发，对UI5也有了一定的了解，可以为大家带来一些分享。做企业级网站的话，UI5或许是个不错的选择。</p>
-<h2 id="开发环境搭建">开发环境搭建</h2>]]></content>
+<h2 id="开发环境搭建">开发环境搭建</h2><h3 id="Eclipse_+_SAPUI5_Tools">Eclipse + SAPUI5 Tools</h3><p>搭建步骤直接从官方文档拖过来：</p>
+<blockquote>
+<p>Required Software for Installing and Running SAPUI5 Tools<br>To install and run SAPUI5 tools, the following software has to be installed:</p>
+<ul>
+<li><p>Java Runtime environment: JRE version, as supported by the used Eclipse release, in 32- or 64-Bit. For example, for Eclipse Mars, JRE 1.7 is recommended but &gt; JRE 1.8 is supported as well.&gt; </p>
+</li>
+<li><p>Operating system: Windows XP, Vista, 7 (32- or 64-Bit), 8/8.1</p>
+</li>
+<li><p>Browser: Not relevant, except for Internet Explorer 9.0 or higher for embedded application preview</p>
+</li>
+</ul>
+<p>Installation Process for SAPUI5 Tools<br>To install SAPUI5 tools, proceed as follows:</p>
+<ol>
+<li><p>Launch your Eclipse workbench. Open the installation wizard by choosing <strong>Help&gt;Install New Software</strong>.</p>
+</li>
+<li><p>In the Work with field of the installation wizard, specify the target directory of the package.</p>
+</li>
+<li><p>To add the new installation directory, choose Add and then choose Archive to specify the location. Enter a name for your local software site.</p>
+</li>
+<li><p>Select all features for the UI development toolkit for HTML5 and choose Next.</p>
+</li>
+<li><p>Review the feature groups to be installed and choose Next.</p>
+</li>
+<li><p>Accept the terms of the license agreement and choose Finish to initiate the installation of selected feature groups.</p>
+</li>
+<li><p>In the Certificates dialog confirm the certificates from Eclipse.org and SAP with OK.</p>
+</li>
+<li><p>To apply the changes of the installation procedure, restart the Eclipse workbench.</p>
+</li>
+<li><p>To check, whether the installation has been successful, proceed as follows:</p>
+</li>
+</ol>
+<p>For application development open Eclipse and choose <strong> File&gt;New&gt;Other…&gt;SAPUI5 Application Development&gt;Application Project</strong>. If the installation has been successful, the New Application Project wizard opens.</p>
+</blockquote>
+<h3 id="Intellij_IDEA_+_OpenUI5">Intellij IDEA + OpenUI5</h3><blockquote>
+<p><a href="http://scn.sap.com/community/developer-center/front-end/blog/2014/09/22/configuring-jetbrains-webstorm-for-ui5-development" target="_blank" rel="external">参考国外友人的分享</a></p>
+</blockquote>
+<h3 id="SAP_Web_IDE">SAP Web IDE</h3><p>最后一种方式最简单，只需要一个HCP账号就行了：</p>
+<ol>
+<li><p><a href="https://account.hanatrial.ondemand.com/" target="_blank" rel="external">登录HCP</a> (没有账号的话可以先注册)</p>
+</li>
+<li><p>点击侧边栏的 <strong>Subscriptions</strong></p>
+</li>
+<li><p>点击 <strong>webide</strong></p>
+</li>
+<li><p>点击 <strong>Application URL</strong></p>
+</li>
+</ol>
+<h2 id="Hello_World">Hello World</h2><h2 id="两个重要概念–Data_Binding_&amp;_Navigation_and_Routing">两个重要概念–Data Binding &amp; Navigation and Routing</h2>]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="前言">前言</h2><h3 id="What_is_UI5?">What is UI5?</h3><p>UI5是SAP的一个企业网页前端框架，基于jQuery，有很多可以直接使用的控件。UI5又分为 <a href="http://openui5.org/" t]]>
+    <![CDATA[<h2 id="前言">前言</h2><h3 id="参考">参考</h3><blockquote>
+<p>官方指南 - <a href="https://sapui5.hana.ondemand.com/#docs/guide/99ac68a5b1c3416ab5c84c99f]]>
     </summary>
     
   </entry>
   
   <entry>
-    <title><![CDATA[谈谈Java设计模式（持续更新）]]></title>
+    <title><![CDATA[谈谈Java设计模式]]></title>
     <link href="http://zerosrat.github.io/2015/12/24/%E8%B0%88%E8%B0%88Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>http://zerosrat.github.io/2015/12/24/谈谈Java设计模式/</id>
     <published>2015-12-24T05:18:20.000Z</published>
-    <updated>2015-12-29T06:02:04.215Z</updated>
+    <updated>2016-04-12T12:58:36.391Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2><h3 id="为什么要使用">为什么要使用</h3><p>一个程序员对设计模式的理解: 不懂为什么要把很简单的东西搞得那么复杂。后来才开始明白我所看到的“复杂”恰恰就是设计模式的精髓所在，我所理解的“简单”就是一把钥匙开一把锁的模式，目的仅仅是着眼于解决现在的问题，而设计模式的“复杂”就在真正理解设计模式之前我一直在编写“简单”的代码。</p>
-<h3 id="更新历史">更新历史</h3><p>2015.12.29 - 适配器模式 （Adapter）<br>2015.12.24 - 单例模式（Singleton）</p>
+<h3 id="目录">目录</h3><p>适配器模式 （Adapter）<br>单例模式（Singleton）</p>
 <h2 id="单例模式（Singleton）">单例模式（Singleton）</h2><h3 id="是什么">是什么</h3><p>Singleton 是一种创建性模型，它用来确保只产生一个实例，并提供一个访问它的全局访问点。对一些类来说，保证只有一个实例是很重要的，比如有的时候，数据库连接或 <code>Socket</code> 连接要受到一定的限制，必须保持同一时间只能有一个连接的存在。再举个例子，集合中的 <code>Set</code> 中不能包含重复的元素，添加到 <code>Set</code> 里的对象必须是唯一的，如果重复的值添加到 <code>Set</code> ，它只接受一个实例。JDK中正式运用了单例模式来实现 <code>Set</code> 的这一特性，大家可以查看 <code>java.util.Collections</code> 里的内部静态类 <code>SingletonSet</code> 的原代码。其实单例是最简单但也是应用最广泛的模式之一，在 JDK 中随处可见。</p>
 <h3 id="饿汉式单例">饿汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton single = <span class="keyword">new</span> Singleton();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> single;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="懒汉式单例">懒汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span> Singleton single = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(single == <span class="keyword">null</span>)&#123;</span><br><span class="line">			single = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> single;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -197,6 +249,33 @@ Gmail app的通知是个不错的例子。当你点击一个电邮信息的通�
 ]]></content>
     <summary type="html">
     <![CDATA[如何优雅地使用MarkDown]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello Hexo]]></title>
+    <link href="http://zerosrat.github.io/2015/10/30/hello-world/"/>
+    <id>http://zerosrat.github.io/2015/10/30/hello-world/</id>
+    <published>2015-10-29T16:02:11.000Z</published>
+    <updated>2016-04-12T14:22:52.698Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>最近接触到了 <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 。这是我的第一篇文章。 可以阅读 <a href="http://hexo.io/docs/" target="_blank" rel="external">文档</a>  来了解更多。在使用<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 遇到了问题，可以直接 <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">问题解答</a> 或是在 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a> 上提出issues.</p>
+<blockquote>
+<p>开启Hexo之旅</p>
+</blockquote>
+<h2 id="快速开始">快速开始</h2><h3 id="新建一篇文章">新建一篇文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>了解更多： <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">写作</a></p>
+<h3 id="启动本地服务器">启动本地服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>了解更多: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">服务器</a></p>
+<h3 id="生成静态文件">生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>了解更多: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">生成</a></p>
+<h3 id="部署网站">部署网站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>了解更多: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">部署</a></p>
+<p>或是 <strong>手动拷贝</strong> 生成的静态文件（~/public）</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[开启Hexo之旅]]>
     
     </summary>
     
