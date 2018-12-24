@@ -1,0 +1,877 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="JavaScript,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="参考《JavaScript 高级程序设计》 第三版《JavaScript 权威指南》 第六版 Overview  注：本博客讲解的是 String 的常用方法，未提及的还有 localeCompare() valueOf()">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 中 String 的常用方法">
+<meta property="og:url" content="http://zerosrat.com/2016/11/15/js-string-common-methods/index.html">
+<meta property="og:site_name" content="Blog of Zero Yu">
+<meta property="og:description" content="参考《JavaScript 高级程序设计》 第三版《JavaScript 权威指南》 第六版 Overview  注：本博客讲解的是 String 的常用方法，未提及的还有 localeCompare() valueOf()">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xoxnz.com1.z0.glb.clouddn.com/js-string-overview00.png">
+<meta property="og:updated_time" content="2018-12-24T11:55:16.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 中 String 的常用方法">
+<meta name="twitter:description" content="参考《JavaScript 高级程序设计》 第三版《JavaScript 权威指南》 第六版 Overview  注：本博客讲解的是 String 的常用方法，未提及的还有 localeCompare() valueOf()">
+<meta name="twitter:image" content="http://7xoxnz.com1.z0.glb.clouddn.com/js-string-overview00.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6284078761897887000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zerosrat.com/2016/11/15/js-string-common-methods/">
+
+
+
+
+
+  <title>JS 中 String 的常用方法 | Blog of Zero Yu</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77951400-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5c9002fdce3fad3f14ba17eae778ce8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog of Zero Yu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Young, Stay Simple.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zerosrat.com/2016/11/15/js-string-common-methods/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of Zero Yu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS 中 String 的常用方法
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-15T16:42:29+00:00">
+                2016-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-End/" itemprop="url" rel="index">
+                    <span itemprop="name">Front End</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/15/js-string-common-methods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/js-string-common-methods/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>《JavaScript 高级程序设计》 第三版<br>《JavaScript 权威指南》 第六版</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="http://7xoxnz.com1.z0.glb.clouddn.com/js-string-overview00.png" alt=""></p>
+<blockquote>
+<p>注：本博客讲解的是 String 的常用方法，未提及的还有 <code>localeCompare()</code> <code>valueOf()</code></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="现在开始吧"><a href="#现在开始吧" class="headerlink" title="现在开始吧"></a>现在开始吧</h2><h3 id="charAt-charCodeAt"><a href="#charAt-charCodeAt" class="headerlink" title="charAt() / charCodeAt()"></a>charAt() / charCodeAt()</h3><ul>
+<li>描述：前者返回字符串中的第 n 个字符， 后者返回字符串中第 n 个字符的编码</li>
+<li>参数：n</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.charAt(<span class="number">1</span>));  <span class="comment">// 'e'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.charCodeAt(<span class="number">1</span>));  <span class="comment">// 101</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><ul>
+<li>描述：将一个或多个字符串拼接并返回</li>
+<li>参数：str, …</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.concat(<span class="string">' world'</span>));  <span class="comment">// 'hello world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'hello'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf() / lastIndexOf()"></a>indexOf() / lastIndexOf()</h3><ul>
+<li>描述：前者从开头搜索一个字符串并返回位置，后者反向；为找到的话返回 -1</li>
+<li>参数：substring, start?</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.indexOf(<span class="string">'o'</span>));  <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(str.lastIndexOf(<span class="string">'o'</span>));  <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h3><ul>
+<li>描述：找到并替换字符串中的指定substring，第一个参数是要查找的值，可以是字符串或正则表达式，第二个参数是要替换成的字符串</li>
+<li>参数：substring/regexp, replacement</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'cat, bat, fat'</span>;</span><br><span class="line">str.replace(<span class="string">'at'</span>, <span class="string">'xxx'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'cxxx,bat,fat'</span></span><br><span class="line">str.replace(<span class="regexp">/at/g</span>, <span class="string">'yyy'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'cxxx,byyy,fyyy'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="rearch"><a href="#rearch" class="headerlink" title="rearch()"></a>rearch()</h3><ul>
+<li>描述：根据一个正则 <strong>正向</strong> 找到并返回其 <strong>第一个</strong> 位置，参数不是正则的话会被转换成正则</li>
+<li>参数：regexp</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'cat, bat, fat'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.search(<span class="regexp">/at/g</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h3><ul>
+<li>描述：根据正则找到一个或多个匹配结果</li>
+<li>参数：regexp</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'1 plus 2 equals 3'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(<span class="regexp">/\d+/g</span>));  <span class="comment">// ['1','2','3']</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>话外音：<a href="http://stackoverflow.com/questions/5296268/fastest-way-to-check-a-string-contain-another-substring-in-javascript/" target="_blank" rel="noopener">Fastest way to check a string contain another substring in Javascript?</a></p>
+</blockquote>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><ul>
+<li>描述：提取并返回字符串，根据指定区间 [start,end)，若未指定end，区间为 [start,str.length-1]</li>
+<li>参数：start, end?</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">3</span>));  <span class="comment">// 'lo world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">3</span>,<span class="number">7</span>));  <span class="comment">// 'lo w'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'hello world'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="substring"><a href="#substring" class="headerlink" title="substring()"></a>substring()</h3><ul>
+<li>描述：提取并返回字符串，根据指定区间 [start,end)，若未指定end，区间为 [start,str.length-1]</li>
+<li>参数：start,end?</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">3</span>));  <span class="comment">// 'lo world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">3</span>,<span class="number">7</span>));  <span class="comment">// 'lo w'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'hello world'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>话外音：<a href="http://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring" target="_blank" rel="noopener">What is the difference between String.slice and String.substring?</a></p>
+</blockquote>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h3><ul>
+<li>描述：提取并返回字符串，第一个参数为起始点，第二个参数为返回子串的长度</li>
+<li>参数：start,length</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>));  <span class="comment">// 'lo world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>,<span class="number">7</span>));  <span class="comment">// 'lo worl'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'hello world'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h3><ul>
+<li>描述：根据指定字符串或正则，将字符串分割成数组</li>
+<li>参数：delimiter,limit</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'a b c'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">' '</span>));  <span class="comment">// ['a','b','c']</span></span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="string">''</span>));  <span class="comment">// ['a',' ','b',' ','c']</span></span><br><span class="line"><span class="built_in">console</span>.log(str.split());  <span class="comment">// ['a b c']</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="toUpperCase-toLowerCase"><a href="#toUpperCase-toLowerCase" class="headerlink" title="toUpperCase() / toLowerCase()"></a>toUpperCase() / toLowerCase()</h3><ul>
+<li>描述：将字符串转为大写/小写</li>
+<li>参数：无</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'Hello world!'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());  <span class="comment">// 'HELLO WORLD!'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'Hello world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.toLowerCase());  <span class="comment">// 'hello world'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// 'Hello world'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h3><ul>
+<li>描述：删除字符串开头和结尾的空格并返回</li>
+<li>参数：无</li>
+<li>例子<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'  Hello world!  '</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.trim());  <span class="comment">// 'Hello world!'</span></span><br><span class="line"><span class="built_in">console</span>.log(str);  <span class="comment">// '  Hello world!  '</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>EOF</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/13/Hexo-github-gages-blog-setup-and-migrate/" rel="next" title="Hexo + Github Pages 博客的搭建与迁移">
+                <i class="fa fa-chevron-left"></i> Hexo + Github Pages 博客的搭建与迁移
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/19/npm-install-acceleration/" rel="prev" title="npm 下载提速解决方案">
+                npm 下载提速解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Zero Yu">
+          <p class="site-author-name" itemprop="name">Zero Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zerosrat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:zero.yu@hotmail.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现在开始吧"><span class="nav-number">3.</span> <span class="nav-text">现在开始吧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt-charCodeAt"><span class="nav-number">3.1.</span> <span class="nav-text">charAt() / charCodeAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">3.2.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf-lastIndexOf"><span class="nav-number">3.3.</span> <span class="nav-text">indexOf() / lastIndexOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace"><span class="nav-number">3.4.</span> <span class="nav-text">replace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rearch"><span class="nav-number">3.5.</span> <span class="nav-text">rearch()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match"><span class="nav-number">3.6.</span> <span class="nav-text">match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">3.7.</span> <span class="nav-text">slice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substring"><span class="nav-number">3.8.</span> <span class="nav-text">substring()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substr"><span class="nav-number">3.9.</span> <span class="nav-text">substr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">3.10.</span> <span class="nav-text">split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toUpperCase-toLowerCase"><span class="nav-number">3.11.</span> <span class="nav-text">toUpperCase() / toLowerCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trim"><span class="nav-number">3.12.</span> <span class="nav-text">trim()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zerosrat.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zerosrat.com/2016/11/15/js-string-common-methods/';
+          this.page.identifier = '2016/11/15/js-string-common-methods/';
+          this.page.title = 'JS 中 String 的常用方法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zerosrat.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="HTML,CSS,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="关于本博客《Head First HTML &amp;amp; CSS》的知识点梳理，主观性较强。主要记录的是自己比较生疏的知识点和非常重要的知识点。 参考 《Head First HTML &amp;amp; CSS》 第一版">
+<meta name="keywords" content="HTML,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Head First HTML &amp; CSS》知识点梳理">
+<meta property="og:url" content="http://zerosrat.com/2016/08/16/Head-First-HTML-CSS-knowledge-points/index.html">
+<meta property="og:site_name" content="Blog of Zero Yu">
+<meta property="og:description" content="关于本博客《Head First HTML &amp;amp; CSS》的知识点梳理，主观性较强。主要记录的是自己比较生疏的知识点和非常重要的知识点。 参考 《Head First HTML &amp;amp; CSS》 第一版">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-24T11:55:16.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Head First HTML &amp; CSS》知识点梳理">
+<meta name="twitter:description" content="关于本博客《Head First HTML &amp;amp; CSS》的知识点梳理，主观性较强。主要记录的是自己比较生疏的知识点和非常重要的知识点。 参考 《Head First HTML &amp;amp; CSS》 第一版">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6284078761897887000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zerosrat.com/2016/08/16/Head-First-HTML-CSS-knowledge-points/">
+
+
+
+
+
+  <title>《Head First HTML & CSS》知识点梳理 | Blog of Zero Yu</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77951400-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5c9002fdce3fad3f14ba17eae778ce8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog of Zero Yu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Young, Stay Simple.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zerosrat.com/2016/08/16/Head-First-HTML-CSS-knowledge-points/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of Zero Yu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Head First HTML & CSS》知识点梳理
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-16T21:19:59+00:00">
+                2016-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-End/" itemprop="url" rel="index">
+                    <span itemprop="name">Front End</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/16/Head-First-HTML-CSS-knowledge-points/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/16/Head-First-HTML-CSS-knowledge-points/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="关于本博客"><a href="#关于本博客" class="headerlink" title="关于本博客"></a>关于本博客</h2><p>《Head First HTML &amp; CSS》的知识点梳理，主观性较强。主要记录的是自己比较生疏的知识点和非常重要的知识点。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>《Head First HTML &amp; CSS》 第一版</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="开始了解-HTML"><a href="#开始了解-HTML" class="headerlink" title="开始了解 HTML"></a>开始了解 HTML</h2><ul>
+<li><code>HTML</code> 即 HyperText Markup Language</li>
+<li>在 <code>&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</code> 中插入样式</li>
+<li><code>CSS</code> 即 Cascading Style Sheet</li>
+<li><code>HTML</code> 中的 ML 是指描述网页结构的标记语言；HT 是指把一个网页链接到其他网页，得益于 <code>&lt;a&gt;</code> 元素</li>
+</ul>
+<h2 id="深入理解超文本"><a href="#深入理解超文本" class="headerlink" title="深入理解超文本"></a>深入理解超文本</h2><ul>
+<li><code>&lt;a&gt;</code> 元素的 <code>href</code> 属性告诉浏览器链接的目的地，是 hypertext reference 的简写</li>
+<li>把 <code>&lt;img&gt;</code> 放进 <code>&lt;a&gt;</code> 或是设置 <code>&lt;a&gt;</code> 的 <code>background-image</code> 属性，实现可点击的图片</li>
+<li>相对路径与绝对路径，HTML 路径必须使用 “/” 分隔符</li>
+</ul>
+<h2 id="网页创建"><a href="#网页创建" class="headerlink" title="网页创建"></a>网页创建</h2><ul>
+<li>使用 <code>&lt;q&gt;</code> 让被引用的文字的两侧显示双引号，更好的结构化代码</li>
+<li>少量引用使用 <code>&lt;q&gt;</code> 一段引用使用 <code>&lt;blockquote&gt;</code></li>
+<li><code>block</code> 与 <code>inline</code> 元素</li>
+<li>空元素，如 <code>&lt;br&gt;</code> 和 <code>&lt;img&gt;</code></li>
+<li><p>自定义列表的元素：<code>&lt;dl&gt;</code> &amp; <code>&lt;dt&gt;</code> &amp; <code>&lt;dd&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">   &lt;dt&gt;计算机&lt;/dt&gt;</span><br><span class="line">   &lt;dd&gt;用来计算的仪器 ... ...&lt;/dd&gt;</span><br><span class="line">   &lt;dt&gt;显示器&lt;/dt&gt;</span><br><span class="line">   &lt;dd&gt;以视觉方式显示信息的装置 ... ...&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&lt;img&gt;</code> 是 inline 元素，但却有 block 的行为；<code>&lt;br&gt;</code> 是 inline；<code>&lt;hr&gt;</code> 是 block</p>
+</li>
+<li>输入文本时，用 <code>&amp;lt</code> 代表 <code>&lt;</code> ；用 <code>&amp;rt</code> 代表 <code>&gt;</code>；用 <code>&amp;amp</code> 代表 <code>&amp;</code></li>
+<li><code>&lt;pre&gt;</code> 元素可定义预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。</li>
+</ul>
+<h2 id="开始链接"><a href="#开始链接" class="headerlink" title="开始链接"></a>开始链接</h2><ul>
+<li>当点击一个相对链接时，浏览器会在后头根据相对路径和你所点击的网页的路径生成一个绝对路径</li>
+<li>当在浏览器输入 <code>http://www.google.com</code> 时，web 服务器会尝试在目录中定位默认文件，一般是 <code>index.html</code></li>
+<li><code>&lt;a&gt;</code> 中使用 <code>title</code> 属性，当鼠标移到元素上时会显示属性中的内容以解释链接；</li>
+<li><p>在 <code>&lt;a&gt;</code> 中使用 <code>id</code> 属性来更加精准的定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#target&quot;&gt;to target&lt;/a&gt;</span><br><span class="line">...</span><br><span class="line">&lt;a id=&quot;target&quot;&gt;I am the target&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>&lt;a&gt;</code> 中设置 <code>target=&quot;_blank&quot;</code> 来打开一个新的窗口</p>
+</li>
+</ul>
+<h2 id="认识媒体"><a href="#认识媒体" class="headerlink" title="认识媒体"></a>认识媒体</h2><ul>
+<li>图片格式对比：jpeg 是有损的，不支持透明，适合于图片；gif 是无损的，支持透明，适合 logo、线条画；png 是无损的，支持透明，但尺寸较大，适合小图</li>
+<li><code>&lt;img&gt;</code> 使用 <code>alt</code> 属性，当图片加载失败时显示属性中的内容</li>
+<li>可以给图片单独指定他的 <code>width</code> 或是 <code>height</code></li>
+<li><code>&lt;img&gt;</code> 是内联元素</li>
+</ul>
+<h2 id="严格的-HTML"><a href="#严格的-HTML" class="headerlink" title="严格的 HTML"></a>严格的 HTML</h2><ul>
+<li><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</code></li>
+<li>坚持标签小写</li>
+<li>严格 HTML 4.01：网页始终以一个 <code>DOCTYPE</code> 开头；所有内联元素和文本元素必须在块元素中；内联元素不可嵌套块元素；<code>&lt;p&gt;</code> 不可嵌套块元素；<code>&lt;blockquote&gt;</code> 只可嵌套块元素；<code>&lt;a&gt;</code> 不可自我嵌套；空元素不可再嵌套</li>
+</ul>
+<h2 id="转到-XHTML"><a href="#转到-XHTML" class="headerlink" title="转到 XHTML"></a>转到 XHTML</h2><ul>
+<li>需要在 <code>&lt;html&gt;</code> 中添加 <code>xmlns</code> 和 <code>lang</code> 和 <code>xml:lang</code></li>
+<li>空元素以 <code>/&gt;</code> 结尾</li>
+</ul>
+<h2 id="开始学习-CSS"><a href="#开始学习-CSS" class="headerlink" title="开始学习 CSS"></a>开始学习 CSS</h2><ul>
+<li><code>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;xxx.css&quot; &gt;</code></li>
+<li>sans-serif 字体没有衬线</li>
+<li>子元素会继承父元素的一些样式；子元素自己的样式优先于继承而来的样式</li>
+<li>使用 <code>/** comment **/</code> 注释</li>
+</ul>
+<h2 id="字体和颜色样式"><a href="#字体和颜色样式" class="headerlink" title="字体和颜色样式"></a>字体和颜色样式</h2><ul>
+<li><code>font-family</code> 有几大类：<code>serif</code> <code>sans-serif</code> <code>cursive</code> <code>fantasy</code> <code>monospace</code></li>
+<li><code>font-size</code> 的常用单位 <code>px</code> 和 <code>em</code>，是指一个字顶部到底部的高度</li>
+<li><code>color</code> 可使用内置单词表示或是 <code>rbg( , , )</code> 或是十六进制，其中十六进制最常用</li>
+<li><code>font-weight</code> 可使用 <code>lighter</code> <code>normal</code> <code>bold</code> <code>bolder</code></li>
+<li><code>text-decoration</code> 可使用 <code>none</code> <code>underline</code> <code>overline</code> <code>line-through</code> <code>blink</code></li>
+<li><code>font-size</code> 可以设置百分比，表示的是相对于父元素的大小，em 表示时亦然</li>
+<li><code>font-style</code> 可选的值有 <code>normal</code> <code>italic</code> <code>oblique</code> <code>inherit</code></li>
+<li>256色的屏幕会有web安全色的问题，但这已成为历史</li>
+</ul>
+<h2 id="盒模式"><a href="#盒模式" class="headerlink" title="盒模式"></a>盒模式</h2><ul>
+<li>元素由内到外依次为内容区、内边距、边框和外边距，他们之间没有互相依赖</li>
+<li><code>background-clip</code>(CSS3) 属性规定背景的绘制区域，默认是 <code>border-box</code>，即背景被裁剪到边框</li>
+<li><code>background-repeat</code> 的默认值是 <code>repeat</code>，其他可能的值有：<code>repeat-x</code> <code>repeat-y</code> <code>no-repeat</code> <code>inherit</code></li>
+<li><code>background-position</code> 默认是表示左上角</li>
+<li><code>border-style</code> <code>border-width</code> <code>border-color</code> 分为代表边框的风格、宽度和颜色</li>
+</ul>
+<h2 id="div和span"><a href="#div和span" class="headerlink" title="div和span"></a>div和span</h2><ul>
+<li>使用 <code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code> 的目的是更好的展示结构，但是不要为了结构而结构地滥用</li>
+<li>width 属性值用来定义内容区的宽度</li>
+<li>块元素默认宽度和高度是 <code>auto</code></li>
+<li><code>text-align</code> 只能用于块元素，设置其中的文本对齐方式</li>
+<li>给 <code>line-height</code> 设置值而不带单位，表示相对于自己 <code>font-size</code> 的值</li>
+<li>border 和 background 的缩写顺序是随意的</li>
+<li><a href="http://www.w3school.com.cn/cssref/pr_font_font.asp" target="_blank" rel="noopener">font 的缩写</a></li>
+<li>伪类的合理顺序是：link，visited，focus，hover，active</li>
+</ul>
+<h2 id="布局和排版"><a href="#布局和排版" class="headerlink" title="布局和排版"></a>布局和排版</h2><ul>
+<li>CSS 布局模型：流动模型、浮动模型和层模型</li>
+<li>垂直相邻的两个块级元素会发生重叠（流动模型中）</li>
+<li>浮动模型中设置 <code>float</code> 进行漂移</li>
+<li>层模型包含绝对布局、相对布局和固定布局</li>
+<li>绝对布局和固定布局会脱离正常的流，相对布局会留下一块区域</li>
+<li>绝对布局的偏移是相对于页面，固定布局的偏移是相对于浏览器</li>
+</ul>
+<h2 id="表格和更多列表"><a href="#表格和更多列表" class="headerlink" title="表格和更多列表"></a>表格和更多列表</h2><ul>
+<li><code>&lt;table&gt;</code> 中的 <code>&lt;caption&gt;</code> 设置表格标题</li>
+<li><code>caption-side</code> 表示标题的位置，可选的值有 <code>top</code> 和 <code>bottom</code>，默认是前者</li>
+<li>表格中的元素没有外边距，取而代之的是 <code>border-spacing</code></li>
+<li>通过设置 <code>border-collapse: collapse</code> 消除边框间距</li>
+<li>设置 ‘colspan’ 和 <code>rowspan</code> 扩展元素的大小</li>
+<li>使用 <code>list-style-type</code> 改变列表的标志</li>
+<li>使用 <code>list-style-image</code> 自定义列表的标志</li>
+<li>使用 <code>text-align</code> 和 <code>vertical-align</code> 改变表格数据的对齐方式</li>
+</ul>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><ul>
+<li>相关的单选框或复选框的 <code>name</code> 值必须相同</li>
+<li><code>&lt;select&gt;</code> 元素的 <code>name</code> 指定了他的 <code>&lt;option&gt;</code>的 <code>name</code></li>
+<li>使用 <code>fieldset</code> + <code>&lt;legend&gt;</code> 绘制一个“标签框”</li>
+<li><code>&lt;select&gt;</code> 加上 <code>multiple=&quot;multiple&quot;</code>，把单选变成多选</li>
+<li>给提交按钮设置 <code>value</code> 来改变其上的文字</li>
+<li><code>&lt;input&gt;</code> 的 <code>type</code> 可以是 <code>text</code> <code>submit</code> <code>radio</code> <code>checkbox</code> <code>password</code> 等</li>
+</ul>
+<hr>
+<p>EOF</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/24/js-loop-over-an-array/" rel="next" title="JavaScript 数组遍历">
+                <i class="fa fa-chevron-left"></i> JavaScript 数组遍历
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/21/js-array-common-methods/" rel="prev" title="JavaScript 数组操作合集">
+                JavaScript 数组操作合集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Zero Yu">
+          <p class="site-author-name" itemprop="name">Zero Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zerosrat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:zero.yu@hotmail.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于本博客"><span class="nav-number">1.</span> <span class="nav-text">关于本博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始了解-HTML"><span class="nav-number">3.</span> <span class="nav-text">开始了解 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解超文本"><span class="nav-number">4.</span> <span class="nav-text">深入理解超文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页创建"><span class="nav-number">5.</span> <span class="nav-text">网页创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始链接"><span class="nav-number">6.</span> <span class="nav-text">开始链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认识媒体"><span class="nav-number">7.</span> <span class="nav-text">认识媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#严格的-HTML"><span class="nav-number">8.</span> <span class="nav-text">严格的 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转到-XHTML"><span class="nav-number">9.</span> <span class="nav-text">转到 XHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始学习-CSS"><span class="nav-number">10.</span> <span class="nav-text">开始学习 CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体和颜色样式"><span class="nav-number">11.</span> <span class="nav-text">字体和颜色样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模式"><span class="nav-number">12.</span> <span class="nav-text">盒模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div和span"><span class="nav-number">13.</span> <span class="nav-text">div和span</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局和排版"><span class="nav-number">14.</span> <span class="nav-text">布局和排版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格和更多列表"><span class="nav-number">15.</span> <span class="nav-text">表格和更多列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">16.</span> <span class="nav-text">表单</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zerosrat.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zerosrat.com/2016/08/16/Head-First-HTML-CSS-knowledge-points/';
+          this.page.identifier = '2016/08/16/Head-First-HTML-CSS-knowledge-points/';
+          this.page.title = '《Head First HTML & CSS》知识点梳理';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zerosrat.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

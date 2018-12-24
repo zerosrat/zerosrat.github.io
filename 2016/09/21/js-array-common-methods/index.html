@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="JavaScript,Array,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="参考 《JavaScript 权威指南》   《JavaScript 高级程序设计》   Overview">
+<meta name="keywords" content="JavaScript,Array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 数组操作合集">
+<meta property="og:url" content="http://zerosrat.com/2016/09/21/js-array-common-methods/index.html">
+<meta property="og:site_name" content="Blog of Zero Yu">
+<meta property="og:description" content="参考 《JavaScript 权威指南》   《JavaScript 高级程序设计》   Overview">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xoxnz.com1.z0.glb.clouddn.com/js-array-overview.png">
+<meta property="og:updated_time" content="2018-12-24T11:55:16.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 数组操作合集">
+<meta name="twitter:description" content="参考 《JavaScript 权威指南》   《JavaScript 高级程序设计》   Overview">
+<meta name="twitter:image" content="http://7xoxnz.com1.z0.glb.clouddn.com/js-array-overview.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6284078761897887000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zerosrat.com/2016/09/21/js-array-common-methods/">
+
+
+
+
+
+  <title>JavaScript 数组操作合集 | Blog of Zero Yu</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77951400-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5c9002fdce3fad3f14ba17eae778ce8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog of Zero Yu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Stay Young, Stay Simple.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zerosrat.com/2016/09/21/js-array-common-methods/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zero Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of Zero Yu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 数组操作合集
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-21T23:48:07+00:00">
+                2016-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-End/" itemprop="url" rel="index">
+                    <span itemprop="name">Front End</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/21/js-array-common-methods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/21/js-array-common-methods/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>《JavaScript 权威指南》</p>
+</blockquote>
+<blockquote>
+<p>《JavaScript 高级程序设计》</p>
+</blockquote>
+<hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><img src="http://7xoxnz.com1.z0.glb.clouddn.com/js-array-overview.png" alt=""><br><a id="more"></a></p>
+<hr>
+<h2 id="JavaScript-数组的特性"><a href="#JavaScript-数组的特性" class="headerlink" title="JavaScript 数组的特性"></a>JavaScript 数组的特性</h2><ul>
+<li><p>无类型</p>
+</li>
+<li><p>动态</p>
+</li>
+<li><p>可能稀疏</p>
+</li>
+</ul>
+<hr>
+<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>两种方式</p>
+<ul>
+<li><p>使用数组字面量（数组直接量）：<code>var array = [];</code></p>
+</li>
+<li><p>使用构造函数 Array: <code>var array = new Array[];</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="数组检测"><a href="#数组检测" class="headerlink" title="数组检测"></a>数组检测</h2><ul>
+<li><p>ES5：使用 <code>Array.isArray()</code> 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray([])  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES3：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">Function</span>.isArray || <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> === <span class="string">'object'</span> &amp;&amp;</span><br><span class="line">    <span class="built_in">Object</span>.prototype.toStrong.call(o) === <span class="string">'[Object Array]'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="数组上的操作"><a href="#数组上的操作" class="headerlink" title="数组上的操作"></a>数组上的操作</h2><h3 id="先来个总结"><a href="#先来个总结" class="headerlink" title="先来个总结"></a>先来个总结</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">是否修改原数组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">join()</td>
+<td style="text-align:center">字符串，作为分隔符（可选）</td>
+<td style="text-align:center">将数组中所有元素转化为字符串并连接在一起</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">reverse()</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">将数组中的元素颠倒顺序</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">sort()</td>
+<td style="text-align:center">比较函数（可选）</td>
+<td style="text-align:center">进行排序。默认按字母表顺序</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">concat()</td>
+<td style="text-align:center">用于拼接</td>
+<td style="text-align:center">创建一个新的拼接好的数组</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">slice()</td>
+<td style="text-align:center">两个参数分别指定了片段的开始和结束位置 [a, b)</td>
+<td style="text-align:center">返回指定数组的一个片段</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">splice()</td>
+<td style="text-align:center">第一个参数制定删除的起始位置，第二个指定被删除的个数，之后参数是插入的元素</td>
+<td style="text-align:center">插入和删除</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">push()</td>
+<td style="text-align:center">待添加元素</td>
+<td style="text-align:center">数组尾部添加值并返回数组新长度</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">pop()</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数组尾部删除并返回删除的值</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">unsift()</td>
+<td style="text-align:center">待添加元素</td>
+<td style="text-align:center">数组头部添加值并返回数组新长度</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">shift()</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">数组头部删除并返回删除的值</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join();  <span class="comment">// return "1,2,3"</span></span><br><span class="line">arr.join(<span class="string">''</span>);  <span class="comment">// return "123"</span></span><br><span class="line">arr.join(<span class="string">' '</span>);  <span class="comment">// return "1 2 3"</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">b.join(<span class="string">'-'</span>);  <span class="comment">// return "----------"</span></span><br></pre></td></tr></table></figure>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.reverse();  <span class="comment">// arr is [3,2,1]</span></span><br></pre></td></tr></table></figure>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">33</span>, <span class="number">4</span>, <span class="number">1111</span>, <span class="number">222</span>];</span><br><span class="line">arr.sort();  <span class="comment">// arr is [1111, 222, 33, 4]</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a-b);  <span class="comment">// arr is [4, 33, 222, 1111]</span></span><br></pre></td></tr></table></figure>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.concat(<span class="number">3</span>, <span class="number">4</span>);  <span class="comment">// return [1, 2, 3, 4]</span></span><br><span class="line">arr.concat([<span class="number">3</span>, <span class="number">4</span>]);  <span class="comment">// return [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><p>args: [start, end)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.slice(<span class="number">0</span>, <span class="number">3</span>);  <span class="comment">// return [1, 2, 3]</span></span><br><span class="line">arr.slice(<span class="number">3</span>);  <span class="comment">// return [4, 5]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h3><p>args: (index, count, toBeAdded…)<br>index 从零开始计数，删除 count 个 index 对应元素之后的元素（包括自己），被添加的元素添加到 index 对应元素之前<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];</span><br><span class="line">arr.splice(<span class="number">4</span>);  <span class="comment">// return [5, 6, 7]; arr is [1, 2, 3, 4]</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">2</span>);  <span class="comment">// return [2, 3]; arr is [1, 4]</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'a'</span>, <span class="string">'b'</span>);  <span class="comment">// return []; arr is [1, 'a', 'b' ,4]</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">'c'</span>);  <span class="comment">// return ['a']; arr is [1, 'c', 'b', 4]</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="数组遍历的方法（均为ES5-）"><a href="#数组遍历的方法（均为ES5-）" class="headerlink" title="数组遍历的方法（均为ES5+）"></a>数组遍历的方法（均为ES5+）</h2><ul>
+<li><p>forEach(val, index, arr)<br>要提前终止的话，要使用 <code>try-catch</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[].forEach(<span class="function">(<span class="params">el, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map()<br>遍历数组每一个元素并对其进行操作之后，返回新的数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.map(<span class="function"><span class="params">i</span> =&gt;</span> i * i); <span class="comment">//[1, 4, 9]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter()<br>遍历数组每一个元素并进行判断之后，返回判断为真的元素组成的新数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.filter(<span class="function"><span class="params">val</span> =&gt;</span> val &gt; <span class="number">1</span>); <span class="comment">//[2, 3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>every() &amp; some()<br>遍历数组每个元素，根据表达式进行判断，返回一个布尔值，对于 <code>every()</code> 是所有，对于 <code>some()</code>是存在</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.every(<span class="function"><span class="params">i</span> =&gt;</span> i&lt;<span class="number">4</span>);  <span class="comment">//true</span></span><br><span class="line">arr.some(<span class="function"><span class="params">i</span> =&gt;</span> i%<span class="number">2</span>===<span class="number">0</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduce() &amp; reduceRight()<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="noopener">参考这个 – Array.prototype.reduce()</a><br>可用于数组求和以及数组扁平化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// sum is 6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> flattened = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]].reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.concat(b);</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// flattened is [0, 1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>indexOf() &amp; lastIndexOf()<br>在数组中寻找值，前者为顺序查找，后者为倒序。若找到，则返回找到的值的 index，反之返回 -1</p>
+</li>
+</ul>
+<hr>
+<h2 id="ES6-的数组方法"><a href="#ES6-的数组方法" class="headerlink" title="ES6 的数组方法"></a>ES6 的数组方法</h2><p>可参考下面博客进行学习<br><a href="http://www.2ality.com/2014/05/es6-array-methods.html" target="_blank" rel="noopener">ECMAScript 6’s new array methods</a><br><a href="http://www.w3cplus.com/javascript/es6-array-methods.html" target="_blank" rel="noopener">JavaScript学习笔记：ES6数组方法</a></p>
+<hr>
+<h2 id="一些总结"><a href="#一些总结" class="headerlink" title="一些总结"></a>一些总结</h2><p>有副作用的操作：<code>reverse()</code> <code>sort()</code> <code>splice()</code> <code>push()</code> <code>pop()</code> <code>shift()</code> <code>unshift()</code></p>
+<hr>
+<p>EOF</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/16/Head-First-HTML-CSS-knowledge-points/" rel="next" title="《Head First HTML & CSS》知识点梳理">
+                <i class="fa fa-chevron-left"></i> 《Head First HTML & CSS》知识点梳理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/13/Hexo-github-gages-blog-setup-and-migrate/" rel="prev" title="Hexo + Github Pages 博客的搭建与迁移">
+                Hexo + Github Pages 博客的搭建与迁移 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Zero Yu">
+          <p class="site-author-name" itemprop="name">Zero Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zerosrat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:zero.yu@hotmail.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-数组的特性"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 数组的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">4.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组检测"><span class="nav-number">5.</span> <span class="nav-text">数组检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组上的操作"><span class="nav-number">6.</span> <span class="nav-text">数组上的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来个总结"><span class="nav-number">6.1.</span> <span class="nav-text">先来个总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join"><span class="nav-number">6.2.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">6.3.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">6.4.</span> <span class="nav-text">sort()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">6.5.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">6.6.</span> <span class="nav-text">slice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice"><span class="nav-number">6.7.</span> <span class="nav-text">splice()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组遍历的方法（均为ES5-）"><span class="nav-number">7.</span> <span class="nav-text">数组遍历的方法（均为ES5+）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-的数组方法"><span class="nav-number">8.</span> <span class="nav-text">ES6 的数组方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些总结"><span class="nav-number">9.</span> <span class="nav-text">一些总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zerosrat.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zerosrat.com/2016/09/21/js-array-common-methods/';
+          this.page.identifier = '2016/09/21/js-array-common-methods/';
+          this.page.title = 'JavaScript 数组操作合集';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zerosrat.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
